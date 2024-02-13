@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Group Generator</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
+    <link href="./dist/output.css" rel="stylesheet">
+</head>
+
+<body style="background: url(./assets/wp11298504.png) no-repeat center center fixed; background-size: cover;">
+    <div>
+        <h1 class="font-quick-bold text-6xl text-center my-5">Random Group Generator</h1>
+        <div class="grid grid-cols-9">
+            <div class="col-span-3 flex justify-end items-center">
+                <div class="col-span-3">
+                    <label for="minmax-range" class="block mb-2 mx-2 text-xl font-quick-med text-gray-900 dark:text-white">
+                        Group Amount</label>
+                    <input data-tooltip-target="tooltip-default" id="minmax-range2" type="range" min="0" value="0"
+                        class="w-64 h-2 rounded-lg appearance-none cursor-pointer bg-pink-400 border-2 border-white">
+    
+                    <div id="tooltip-default2"  role="tooltip"
+                        class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                        0
+                        <div class="tooltip-arrow" data-popper-arrow></div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- <div class="col-span-3 flex justify-end items-center">
+                <label for="minmax-range" class="block mb-2 mx-2 text-xl font-quick-med text-gray-900 dark:text-white">
+                    Group Amount</label>
+                <input data-tooltip-target="tooltip-default" id="minmax-range2" type="range" min="0" value="0"
+                    class="w-64 h-2 rounded-lg appearance-none cursor-pointer bg-pink-400 border-2 border-white">
+
+                <div id="tooltip-default2" role="tooltip"
+                    class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                    0
+                    <div class="tooltip-arrow" data-popper-arrow></div>
+                </div>
+
+            </div> -->
+            <div class="col-span-2 flex justify-end">
+                <input id="nameInput" class="w-60 h-12 rounded-2xl font-quick-reg text-xl mx-3" type="text">
+            </div>
+            <div class="col-span-1">
+                <button id="addBtn" type="button"
+                    class="text-white text-xl font-quick-med bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-2xl px-5 py-2.5 text-center me-2 mb-2">Add
+                    Name</button>
+            </div>
+            <div class="col-span-3 flex justify-start items-center">
+                <div class="col-span-3">
+                    <label for="minmax-range" class="block mb-2 mx-2 text-xl font-quick-med text-gray-900 dark:text-white">
+                        Group Size</label>
+                    <input data-tooltip-target="tooltip-default" id="minmax-range" type="range" min="0" value="0"
+                        class="w-64 h-2 rounded-lg appearance-none cursor-pointer bg-pink-400 border-2 border-white">
+    
+                    <div id="tooltip-default" role="tooltip"
+                        class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                        0
+                        <div class="tooltip-arrow" data-popper-arrow></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- <div class="gride grid-cols-7 flex justify-end">
+            <div class="col-span-3"></div>
+            <div class="col-span-1"></div>
+            <div class="col-span-3">
+                <label for="minmax-range" class="block mb-2 mx-2 text-xl font-quick-med text-gray-900 dark:text-white">
+                    Group Amount</label>
+                <input data-tooltip-target="tooltip-default" id="minmax-range2" type="range" min="0" value="0"
+                    class="w-64 h-2 rounded-lg appearance-none cursor-pointer bg-pink-400 border-2 border-white">
+
+                <div id="tooltip-default2" role="tooltip"
+                    class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                    0
+                    <div class="tooltip-arrow" data-popper-arrow></div>
+                </div>
+
+            </div>
+        </div> -->
+    </div>
+
+    <div id="peopleAdded" class="my-7">
+
+
+    </div>
+
+    <div class="flex justify-center">
+        <button id="groupBtn" data-modal-target="default-modal" data-modal-toggle="default-modal" type="button"
+            class="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 shadow-lg shadow-cyan-500/50 dark:shadow-lg dark:shadow-cyan-800/80 rounded-lg px-5 py-2.5 text-center text-xl font-quick-bold">Get
+            Groups</button>
+
+        <!-- Main modal -->
+        <div id="default-modal" tabindex="-1" aria-hidden="true"
+            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+            <div class="relative p-4 w-full max-w-2xl max-h-full">
+                <!-- Modal content -->
+                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                    <!-- Modal header -->
+                    <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                        <h3 class="text-xl font-quick-bold text-gray-900 dark:text-white">
+                            Groups
+                        </h3>
+                        <button type="button"
+                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                            data-modal-hide="default-modal">
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 14 14">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                            </svg>
+                            <span class="sr-only">Close modal</span>
+                        </button>
+                    </div>
+                    <!-- Modal body -->
+                    <div id="groupDiv" class="p-4 md:p-5 space-y-4">
+                        <!-- <p class="font-quick-med text-lg py-1">Group 1: Halley, Danny, Sinatha</p>
+                        <p class="font-quick-med text-lg py-1">Group 1: Halley, Danny, Sinatha</p> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+    <!-- <script src="./node_modules/flowbite/dist/flowbite.min.js"></script> -->
+    <script type="module" src="./scripts/app.js"></script>
+</body>
+
+</html>
