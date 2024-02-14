@@ -16,10 +16,12 @@ let count = 0;
 
 addBtn.addEventListener('click', () => {
     person = nameInput.value;
-    if ( !localStorage.getItem("people").includes(person)) {
+    const storedPeople = getLocalStorage();
+    
+    if (!storedPeople || !storedPeople.includes(person)) {
         addPerson(person);
+        saveToLocalStorage(person);
     }
-    saveToLocalStorage(person);
 });
 
 const onLoad = () => {
@@ -96,14 +98,14 @@ range.addEventListener('input', () => {
 
 });
 
-// groupAmount.addEventListener('input', () => {
-//     if(groupAmount.value !== 0){
-//         range.value = 0; 
-//     }
+groupAmount.addEventListener('input', () => {
+    if(groupAmount.value !== 0){
+        range.value = 0; 
+    }
 
-//     tooltip2.textContent = groupAmount.value;
+    tooltip2.textContent = groupAmount.value;
 
-// })
+})
 
 // Create groups based on the range's value
 
@@ -124,6 +126,7 @@ const createGroup = (size) => {
     // Array.from() creates a new, shallow-copied Array instance from an iterable or array-like object
     // Creating a new array with the length of numGroups 
     // _ means the parameter is not being used
+    
     const groups = Array.from({ length: numGroups }, (_, index) => {
         const startIndex = index * size;
         return randomizer.slice(startIndex, startIndex + size)
