@@ -16,7 +16,7 @@ let count = 0;
 
 addBtn.addEventListener('click', () => {
     person = nameInput.value;
-    if (!localStorage.getItem("people").includes(person)) {
+    if ( !localStorage.getItem("people").includes(person)) {
         addPerson(person);
     }
     saveToLocalStorage(person);
@@ -96,14 +96,14 @@ range.addEventListener('input', () => {
 
 });
 
-groupAmount.addEventListener('input', () => {
-    if(groupAmount.value !== 0){
-        range.value = 0; 
-    }
+// groupAmount.addEventListener('input', () => {
+//     if(groupAmount.value !== 0){
+//         range.value = 0; 
+//     }
 
-    tooltip2.textContent = groupAmount.value;
+//     tooltip2.textContent = groupAmount.value;
 
-})
+// })
 
 // Create groups based on the range's value
 
